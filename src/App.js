@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Post />
+    </div>
+  );
+}
+
+function Post() {
+  // Array Destructuring
+  const list = [10, 20, 30];
+  const [a, b] = [10, 20, 30]; // let a = 10; let b = 20;
+
+  let count = 100;
+  let [counter, setCounter] = useState(100); // React aware variable
+
+  return (
+    <div>
+      <div>Hello Post</div>
     </div>
   );
 }
