@@ -11,16 +11,27 @@ function App() {
 }
 
 function Post() {
-  // Array Destructuring
-  const list = [10, 20, 30];
-  const [a, b] = [10, 20, 30]; // let a = 10; let b = 20;
+  let count = 200; // 100 assigned to  local variable
+  let [counter, setCounter] = useState(200); // react state variable
 
-  let count = 100;
-  let [counter, setCounter] = useState(100); // React aware variable
+  const likeMethod = () => {
+    // react state variable
+    setCounter(counter + 1);
+
+    // local
+    count += 1;
+  };
+
+  const dislikeMethod = () => setCounter(counter - 1);
 
   return (
     <div>
       <div>Hello Post</div>
+      <div>
+        {counter} / {count}
+      </div>
+      <button onClick={likeMethod}>Like</button>
+      <button onClick={dislikeMethod}>DisLike</button>
     </div>
   );
 }
