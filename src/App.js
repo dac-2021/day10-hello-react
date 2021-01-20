@@ -11,27 +11,26 @@ function App() {
 }
 
 function Post() {
-  let count = 200; // 100 assigned to  local variable
-  let [counter, setCounter] = useState(200); // react state variable
+  const [title, setTitle] = useState("My Project");
 
-  const likeMethod = () => {
-    // react state variable
-    setCounter(counter + 1);
-
-    // local
-    count += 1;
+  const [list, setList] = useState([]);
+  const addElement = () => {
+    setList(["Hello Universe", ...list]);
   };
-
-  const dislikeMethod = () => setCounter(counter - 1);
 
   return (
     <div>
-      <div>Hello Post</div>
-      <div>
-        {counter} / {count}
-      </div>
-      <button onClick={likeMethod}>Like</button>
-      <button onClick={dislikeMethod}>DisLike</button>
+      <div>{title}</div>
+
+      <h1>My Post</h1>
+      <h6>Comment List </h6>
+      <input type="text" name="" id="" />
+      <button onClick={addElement}>Add Element</button>
+
+      <div>{list.length} Comments</div>
+      {list.map((item, index) => (
+        <div key={index}>{item}</div>
+      ))}
     </div>
   );
 }
