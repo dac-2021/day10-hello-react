@@ -17,7 +17,10 @@ function Post() {
   const updateTheSingleComment = (e) => setSingleComment(e.target.value);
 
   // Immutable object
+  const [post, setPost] = useState("I am facebook post");
   const [comments, setComments] = useState([]);
+  const [likeCount, setLikeCount] = useState(0);
+  const [disLikeCount, setdisLikeCount] = useState(0);
 
   const addComment = () => {
     // setComments(["Hello Universe", ...comments]);
@@ -30,6 +33,7 @@ function Post() {
     <div>
       <h1>{title}</h1>
 
+      <h3>{post}</h3>
       <input
         type="text"
         name=""
@@ -39,7 +43,10 @@ function Post() {
       />
       <button onClick={addComment}>Add Comment</button>
 
-      <div>Comments {comments.length}</div>
+      <div>Like {likeCount}</div>
+      <div>Dislike {disLikeCount}</div>
+      <div>Comments {comments.length} </div>
+
       {comments.map((item, index) => (
         <div key={index}>{item}</div>
       ))}
