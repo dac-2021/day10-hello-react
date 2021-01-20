@@ -10,27 +10,32 @@ function App() {
   );
 }
 
+/**
+ * <Post /> React also has "state"
+ *
+ * <div></div>
+ * <input></input> :: All the form element  has thier own "state".
+ */
 function Post() {
-  const [title, setTitle] = useState("My Project");
+  const [title] = useState("Working with Form Input Element");
+  const [username, setUsername] = useState("");
 
-  const [list, setList] = useState([]);
-  const addElement = () => {
-    setList(["Hello Universe", ...list]);
-  };
+  // When the state of Input Element is udpated. At the same
+  // time we are updating, the state of React State Variabel.
+  // To keep the value in SYNC.
+  const updateInput = (e) => setUsername(e.target.value);
 
   return (
     <div>
-      <div>{title}</div>
+      <h1>{title}</h1>
 
-      <h1>My Post</h1>
-      <h6>Comment List </h6>
-      <input type="text" name="" id="" />
-      <button onClick={addElement}>Add Element</button>
-
-      <div>{list.length} Comments</div>
-      {list.map((item, index) => (
-        <div key={index}>{item}</div>
-      ))}
+      <input
+        type="text"
+        value={username}
+        onChange={updateInput}
+        name="username"
+        placeholder="Username"
+      />
     </div>
   );
 }
